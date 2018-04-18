@@ -1,3 +1,9 @@
 #!/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo "Usage: createmdlink <url>"
+  exit
+fi
+
 TITLE=`curl -s ${1} | grep -oP "(?<=<title>)(.+)(?=</title>)"`
 echo "[$TITLE]($1)"
